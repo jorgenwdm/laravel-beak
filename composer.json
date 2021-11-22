@@ -1,0 +1,39 @@
+{
+    "name": "jorgenwdm/laravel-beak",
+    "description": "A Laravel package that implements bulk messaging using your favorite bulk messaging provider",
+    "keywords": [
+        "beak",
+        "sms",
+        "viber",
+        "laravel-package",
+        "laravel",
+        "php",
+        "jorgenwdm"
+      ],
+    "type": "service",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jorgenwdm",
+            "email": "grtrustme@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.0",
+        "guzzlehttp/guzzle": ">=6.5.x-dev"        
+    },
+    "autoload": {
+        "psr-4": {
+            "Jorgenwdm\\Beak\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jorgenwdm\\Beak\\BeakServiceProvider"
+            ]
+        }
+    }
+}
