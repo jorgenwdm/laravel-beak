@@ -1,5 +1,5 @@
 <div align="center">
-	<p><img src="art/github-banner.jpg" alt="SmsCanal logo"></p>   
+	<p><img src="art/github-banner.jpg" alt="Laravel Beak Logo"></p>   
     <a href="#requirements">Requirements</a> |    
     <a href="#installation">Installation</a> |    
     <a href="#how-to-send-a-message">How to send a message</a> |    
@@ -8,7 +8,7 @@
 
 ------
 
-# Laravel SMS bulk messaging system
+# Laravel Beak bulk sms messaging system
 
 ## Introduction
 
@@ -66,6 +66,24 @@ And we are ready to go!
 The way to send an sms is quite simple. You initialize the service you want eg. CanalSmsMessage, fill it with the parameters
 from, to, text and trigger the sending process.
 
+We can use three formatting methods: `from()`, `to()`, `text()` in order to compose our message.
+
+And then we can use `send()` to trigger the sending proccess.
+
+```php    
+    use Jorgenwdm\Beak\Messengers\CanalSmsMessage;
+
+    $message = new CanalSmsMessage();
+    $message->from('DEMOSENDER')->to('306942931111')->text("HELLO WORLD")->send();
+
+```
+
+Important note: Some sms providers don't want the + sign before the international phone number.
+
+The sending process returns an object that we call response object. 
+
+Some important methods and properties that the response object has are: `hasException`, `getJson()`, `getException()`, `getRaw()`
+
 ```php    
     use Jorgenwdm\Beak\Messengers\CanalSmsMessage;
 
@@ -96,9 +114,10 @@ from, to, text and trigger the sending process.
 
 ## How to get a delivery report
 
-The way to retrieve a delivery report is quite simple.
-You initialize the service you want eg. CanalSmsReport, fill it with the parameters
-for and then trigger the delivery report request process.
+The way to retrieve a delivery report is quite simple and resembles a lot to the message sending process.
+
+You initialize the service you want eg. CanalSmsReport, fill it with the parameters `for` and then trigger the delivery report request process.
+
 
 ```php    
     use \Jorgenwdm\Beak\Reporters\CanalSmsReport;

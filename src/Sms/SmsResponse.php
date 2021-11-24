@@ -9,9 +9,9 @@ class SmsResponse
     public const RAW_TYPE_XML = 1;
    
     // Public properties    
-    public ?string $raw;        // the raw contents of the response as simple text 
+    private ?string $raw;        // the raw contents of the response as simple text 
     public bool $hasException;  // if an exception happened
-    public mixed $exception;    // the Exception object if something went wrong
+    private mixed $exception;    // the Exception object if something went wrong
 
     // Private properties
     private int $rawType;       // the type of raw contents of the response eg. text, xml
@@ -47,6 +47,17 @@ class SmsResponse
     {
         return $this->exception;
     }
+
+    /**
+     * Returns the raw data of the response
+     * 
+     * @return string|null
+     */
+    public function getRaw() : ?string 
+    {
+        return $this->raw;
+    }
+    
 
     /**
      * Sets the raw data of the response
